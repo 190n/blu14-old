@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$#" -ne 0 ]; then
+    exec gnome-session-inhibit mpv --player-operation-mode=pseudo-gui -- "$@"
+else
+    gnome-session-inhibit mpv --player-operation-mode=pseudo-gui -- "$(zenity --file-selection)"
+fi
