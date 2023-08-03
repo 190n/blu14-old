@@ -40,7 +40,7 @@ COPY --from=ghcr.io/ublue-os/bling:latest /rpms/ublue-os-wallpapers-0.1-1.fc38.n
 COPY --from=ghcr.io/ublue-os/bling:latest /files/usr/share/ublue-os/just /usr/share/ublue-os/just
 
 # Add nix installer if you want to use it
-COPY --from=ghcr.io/ublue-os/bling:latest /files/usr/bin/ublue-nix* /usr/bin
+# COPY --from=ghcr.io/ublue-os/bling:latest /files/usr/bin/ublue-nix* /usr/bin
 
 # "yq" used in build.sh and the "setup-flatpaks" just-action to read recipe.yml.
 # Copied from the official container image since it's not available as an RPM.
