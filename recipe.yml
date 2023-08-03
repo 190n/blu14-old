@@ -1,7 +1,7 @@
 # This file can only be edited inside the uBlue image's git repository.
 
 # The image will be at "ghcr.io/yourusername/name".
-name: startingpoint
+name: blu14
 
 # The native container image to build on top of.
 # Warning: Non-uBlue images might not work properly, due to missing components.
@@ -14,7 +14,7 @@ base-image: ghcr.io/ublue-os/silverblue-main
 fedora-version: 38
 
 # This description will be visible in the container metadata.
-description: A starting point for further customization of uBlue images. Make your own! https://ublue.it/making-your-own/
+description: "190n's customized Universal Blue image for their computers"
 
 # These scripts will be executed during the container build.
 # Place scripts in the "scripts/" dir and put the corresponding filenames here.
@@ -48,6 +48,7 @@ rpm:
   repos:
     # Example (which also demonstrates version number expansion):
     # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%FEDORA_VERSION%/atim-starship-fedora-%FEDORA_VERSION%.repo
+    - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
@@ -63,14 +64,22 @@ rpm:
     - libadwaita
     # Add your own below:
     # Example:
-    # - tilix
+    - btop
+    - gvfs-nfs
+    - mpv
+    - qemu-user-binfmt
+    - tailscale
+    - tlp
+    - xclip
+    - zsh
+    - zenity
 
   # These RPMs will be removed from the system image. This step happens during
   # image build, BEFORE installing custom RPMs (from the "rpm.install" category).
   remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
-    - firefox
-    - firefox-langpacks
+    # - firefox
+    # - firefox-langpacks
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
@@ -87,5 +96,33 @@ firstboot:
   # the "just setup-flatpaks" command from our "custom.just" template file.
   # This is just an example selection:
   flatpaks:
-    - io.github.celluloid_player.Celluloid
-    - org.kde.krita
+    - cc.arduino.IDE2
+    - com.discordapp.DiscordCanary
+    - com.github.micahflee.torbrowser-launcher
+    - com.github.tchx84.Flatseal
+    - com.github.wwmm.easyeffects
+    - com.google.Chrome
+    - com.heroicgameslauncher.hgl
+    - com.mattjakeman.ExtensionManager
+    - com.obsproject.Studio
+    - com.slack.Slack
+    - com.spotify.Client
+    - com.usebottles.bottles
+    - com.valvesoftware.Steam
+    - de.haeckerfelix.Fragments
+    - im.riot.Riot
+    - net.cozic.joplin_desktop
+    - net.davidotek.pupgui2
+    - org.audacityteam.Audacity
+    - org.gimp.GIMP
+    - org.inkscape.Inkscape
+    - org.kde.okular
+    - org.libreoffice.LibreOffice
+    - org.mozilla.Thunderbird
+    - org.musescore.MuseScore
+    - org.pipewire.Helvum
+    - org.prismlauncher.PrismLauncher
+    - org.raspberrypi.rpi-imager
+    - org.signal.Signal
+    - org.speedcrunch.SpeedCrunch
+    - us.zoom.Zoom
